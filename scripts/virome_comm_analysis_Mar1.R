@@ -1,0 +1,141 @@
+
+
+
+library("tidyverse")
+library(plyr)
+library("CommEcol")
+library("bipartite")
+library("igraph")
+library(viridis)
+library(scales)
+
+setwd("Alcala_Briseno-Garrett/+++Sweetpotato_virome/+Sweetpotato_virome/")
+
+
+files = list.files(pattern="*_ll.csv")
+files
+#
+ls = list(NULL)
+for (i in seq_along(files)){
+  x <- read.csv(files[i], as.is=T)
+  x$IDs <- rep(strsplit(files[i], "_")[[1]][1], nrow(x))
+  ls[[i]] = x
+}
+ls[[1]]
+
+# merged.data.frame <-  Reduce(function(...) merge(..., all=T), ls)
+
+meta.comm <- rbind.fill(ls) 
+
+fromto <- ddply(meta.comm, .(Virus, IDs), summarise, metric=mean(species.strength))
+comm.mat <- tidyr::spread(fromto, IDs, metric,  drop=TRUE , fill = 0)
+
+rownames(comm.mat) <- comm.mat$Virus
+comm.m <- comm.mat[-c(1)]
+(n=length(comm.m))
+
+# dat.mat = round(comm.mat, digits = 0)
+dim(comm.m)
+
+plotweb(sortweb(comm.m, sort.order="inc"), method="normal")   
+visweb(sortweb(comm.m,sort.order="inc"), type="diagonal", labsize=3,
+             square="interaction", text="none", textsize = 4,circles=FALSE, frame=FALSE)#
+
+dat.mat=comm.m
+virome <-  graph.incidence(dat.mat, weighted=T)
+#------- Network
+# Prepraring colors
+a <- rowSums(dat.mat)
+snode <- data.frame(Species=names(a), Coverage=as.integer(a)) #normalized RPKMs
+snodes = rbind(snode, data.frame(Species=rep("nodes", n), Coverage=rep(25, n)))
+# aading attributes
+V(virome)$type
+V(virome)$name <- c(V(virome)$name[1:length(V(virome)$type[V(virome)$type == "FALSE"])],
+                    rep("", length(V(virome)$type[V(virome)$type == "TRUE"])))
+
+V(virome)$color <-  c(rep("yellow", length(V(virome)$type[V(virome)$type == "FALSE"])), rep("green", length(V(virome)$type[V(virome)$type == "TRUE"])))
+V(virome)$xx <- log(snodes$Coverage) # coverage size
+# V(virome)$width <- c((datb.sp.table$`lower level`$species.strength)+6, log(datb.sp.table$`higher level`$degree)+2)
+show_col(unique(V(virome)$color))
+# 
+# submeta <- meta[which(meta$SampleID %in% colnames(dat.mat)),]
+# legend <- unique(cbind(ColorCode=submeta$colors, Region=as.character(submeta$Country)))
+# Edges names and attributes
+rbPal <- colorRampPalette(c("#f5f5f5", "#483C33")) 
+# rbPal <- colorRampPalette(c("yellow", "red3")) 
+
+E(virome)$width <- (E(virome)$weight)
+# E(virome)$width[E(virome)$width <= 1] <- NA
+# E(virome)$width <- log2(E(virome)$width)
+# E(virome)$width[E(virome)$width == 0] <- NA
+# E(virome)$width <- (E(virome)$width)/max(E(virome)$width[!is.na(E(virome)$width)])
+# E(virome)$color <- rbPal(4)[as.numeric(cut(E(virome)$width, breaks = 4))]
+
+# E(virome)$color <- rbPal(10)[as.numeric(cut(E(virome)$width, breaks = 10))]
+shapes = c(rep("circle", length(V(virome)$type[V(virome)$type == "FALSE"])), rep("square", length(V(virome)$type[V(virome)$type == "TRUE"])))
+# # Network
+
+plot(virome, edge.arrow.size=1, vertex.shape=shapes, vertex.size=V(virome)$width , 
+     vertex.label.cex=1, vertex.label.color='black', vertex.frame.color="gray", 
+     vertex.frame.color="gold",   edge.curved=F,  layout=layout_with_kk(virome))  
+
+source("/Users/ricardoi/Documents/Documents-ehecatl/git_db/scripts_r/bipartite_package/weighted-modularity-LPAwbPLUS-master/code/R/convert2moduleWeb.R")
+source("/Users/ricardoi/Documents/Documents-ehecatl/git_db/scripts_r/bipartite_package/weighted-modularity-LPAwbPLUS-master/code/R/GetModularInformation.R")
+source("/Users/ricardoi/Documents/Documents-ehecatl/git_db/scripts_r/bipartite_package/weighted-modularity-LPAwbPLUS-master/code/R/LPA_wb_plus.R")
+source("/Users/ricardoi/Documents/Documents-ehecatl/git_db/scripts_r/bipartite_package/weighted-modularity-LPAwbPLUS-master/code/R/MODULARPLOT.R")
+
+# Degree distribution: fitting to a linear, power law and truncayed power law distribution 
+degreedistr(dat.mat)
+nested(dat.mat, method="wine")
+
+# Rarest species first:
+visweb(sortweb(dat.mat,sort.order="inc"), type="diagonal", labsize=3,
+       square="interaction", text="none", textsize = 4,circles=FALSE, frame=FALSE)
+# Modularity
+#example scripts
+MOD1 = LPA_wb_plus(as.matrix(dat.mat)) # find labels and weighted modularity using LPAwb+
+MOD2 = DIRT_LPA_wb_plus(as.matrix(dat.mat)) # find labels and weighted modularity using DIRTLPAwb+
+MOD3 = DIRT_LPA_wb_plus(as.matrix(dat.mat) > 0, 2, 20) # find labels and binary modularity using DIRTLPAwb+ checking from a minimum of 2 modules and 20 replicates
+
+# mod1 <- LPA_wb_plus(as.matrix(dat.mat))
+# mod2 <- DIRT_LPA_wb_plus(as.matrix(dat.mat)) # this is better algorithm for Weighted networks: Read Becket 2014
+# MODULARPLOT(dat.mat, mod1)
+# MODULARPLOT(dat.mat, mod2) # THIS
+
+MODULARPLOT(dat.mat, MOD1) 
+MODULARPLOT(dat.mat, MOD2) # THIS
+MODULARPLOT(dat.mat, MOD3) 
+
+# module Web
+Mod1modWeb <- convert2moduleWeb(as.matrix(dat.mat), mod2)
+plotModuleWeb(Mod1modWeb, weighted = T)
+
+
+MOD1information = GetModularInformation(dat.mat, MOD2)
+print(MOD1information$normalised_modularity)  # normalised modularity score for configuration found by MOD1 for MAT
+print(MOD1information$realized_modularity)  # realized modularity score for configuration found by MOD1 for MAT
+print(MOD1information$RowNodesInModules)  # Shows row nodes per module
+print(MOD1information$ColNodesInModules)  # Shows column nodes per module
+
+
+rcPal <- colorRampPalette(c( "skyblue", "lightgreen",  "orange", "#B03060", "#FFD700", "orangered1")) 
+
+
+dat.mat
+# Projection One mode 
+vg <- bipartite.projection(virome)
+
+vgnodes <- as.list(V(vg$proj1))
+V(vg$proj1)$color <- rcPal(14)[as.numeric(cut(as.numeric(factor(as.character(vgnodes))), breaks = 14))]
+# Edges names and attributes
+# E(vg$proj1)$color <- rgPal(10)[as.numeric(cut(E(vg$proj1)$weight, breaks = 10))]
+vg.adj <- get.adjacency(vg$proj1,sparse=FALSE,attr="weight")
+plot(vg$proj1,edge.width=E(vg$proj1)$weight^2, vertex.label=V(vg$proj1)$name, 
+     layout=layout_with_drl(virome, dim = 3))
+
+vg.adj1 <- get.adjacency(vg$proj1, sparse=FALSE, attr="weight")
+
+
+# ‘adegenet’
+# adephylo’
+# adespatial’
