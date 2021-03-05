@@ -20,8 +20,17 @@ for (i in seq_along(files)){
   x$IDs <- rep(strsplit(files[i], "_")[[1]][1], nrow(x))
   ls[[i]] = x
 }
-ls[[1]]
 
+top10viruses <- rbind(ls[[1]][1:10,1:2],
+         ls[[2]][1:10,1:2],
+         ls[[3]][1:10,1:2],
+         ls[[4]][1:10,1:2],
+         ls[[5]][1:10,1:2],
+         ls[[6]][1:10,1:2],
+         ls[[7]][1:10,1:2])
+
+top10virus <- sort(table(top10viruses$Virus), decreasing = T)[1:10]
+top10virus
 
 
 #x=6
