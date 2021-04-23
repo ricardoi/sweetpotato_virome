@@ -1,6 +1,6 @@
 # Code to species co-occurrence
-
-
+#### NOTE
+# k1vina comes from the script ViNAbn_v2.hpg.R
 
 viromeReads <- ddply(k1vina, .(IDs, Family, Genus, pSpecies, Acronym, cluster), 
                      summarise, Coverage=mean(Reads_mean))
