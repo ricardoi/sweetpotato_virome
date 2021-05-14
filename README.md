@@ -1,3 +1,8 @@
+# ![nf-core/viralrecon](docs/images/nf-core-viralrecon_logo.png)
+[![run with conda](http://img.shields.io/badge/run%20with-conda-3EB049?labelColor=000000&logo=anaconda)](https://docs.conda.io/en/latest/)
+[![Follow on Twitter](http://img.shields.io/badge/twitter-%40nf__core-1DA1F2?labelColor=000000&logo=twitter)](https://twitter.com/nf_core)
+
+
 # Sub-Saharan Africa Sweetpotato Virome (SSA-SPV)
 
 Pan-African sweetpotato virome: a network analysis approach for the analysis of communities of viruses
