@@ -1,7 +1,6 @@
 # ![sweetpotatovirome](http://bioinfo.bti.cornell.edu/static/img/logo_new.jpg)
 [![GitHub R package version](https://img.shields.io/github/r-package/v/ricardoi/sweetpotato_virome?label=%3A%3A&logo=R&logoColor=blue&style=plastic)](https://www.r-project.org/)
-#[![run with R](https://img.shields.io/github/r-package/v/ricardoi/sweetpotato_virome/edit/main/README.md?label=-&logo=R&logoColor=blue)]#(https://www.r-project.org/)
-[![Follow on Twitter](http://img.shields.io/badge/twitter-%40nf__core-1DA1F2?labelColor=000000&logo=twitter)](https://twitter.com/nf_core)
+[![Follow on Twitter](http://img.shields.io/badge/twitter-%40nf__core-1DA1F2?labelColor=000000&logo=twitter)](https://twitter.com/ricardoi_)
 
 
 # Sub-Saharan Africa Sweetpotato Virome (SSA-SPV)
