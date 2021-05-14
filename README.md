@@ -34,10 +34,10 @@ The Sub-Saharan Africa sweetpotato crop area was retrieved from two databases: M
 [Seven regions](https://github.com/ricardoi/sweetpotato_virome/blob/main/results/00-Aswp_kcluster-1gamma-2_deg_1e-06_gap_statsMC1000Sep24.pdf) of sweetpotato were determined using a gravity model of a negative exponential distribution using the mean harvested area with a resolution of 1 degree (described in full in [Xing et al. 2020](https://academic.oup.com/bioscience/article/70/9/744/5875255)).
 
 Seven sweetpoato regions results:\
-1- [k-cluster 1](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster1): Tanzania and Uganda\
-2- [k-cluster 2](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster2): Guinea\
-3- [k-cluster 3](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster3): Benin, Ghana and Nigeria\
-4- [k-cluster 4](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster4): Malawi, Mozambique, Tanzania and Zimbabwe\
-5- [k-cluster 5](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster5): Mozambique and Zimbabwe\
-6- [k-cluster 6](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster6): Ethiopia\
-7- [k-cluster 7](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster7): Angola\
+Region 1- [k-cluster 1](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster1): Tanzania and Uganda\
+Region 2- [k-cluster 2](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster2): Guinea\
+Region 3- [k-cluster 3](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster3): Benin, Ghana and Nigeria\
+Region 4- [k-cluster 4](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster4): Malawi, Mozambique, Tanzania and Zimbabwe\
+Region 5- [k-cluster 5](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster5): Mozambique and Zimbabwe\
+Region 6- [k-cluster 6](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster6): Ethiopia\
+Region 7- [k-cluster 7](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster7): Angola\
