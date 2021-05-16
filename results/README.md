@@ -6,6 +6,12 @@
 Fig. 1) Framework diagram\
 <img src="../figures/Fig3_pipeline_ViNA.png" width="500"/>
 
+Fig. 2) Cropland connecitivy of sweetpoato in Sub-Saharan Africa
+<img src="../figures/Fig2_MAP_K-CLUSTERS_NETWORKS_MAR5_00.png" width="500" height="500"/>
+
+Fig. 3) Virome frequency distribution
+<img src="..\figures\Fig4_sweepotato_vriome_barplot_regions_Mar26.png" width="500"/>
+
 Seven sweetpoato regions results:\
 1- [k-cluster 1](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster1): Tanzania and Uganda\
 2- [k-cluster 2](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster2): Guinea\
