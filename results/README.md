@@ -4,8 +4,7 @@
 ##### Network analysis framework
 
 Fig. 1) Framework diagram\
-# ![Fig.1](https://github.com/ricardoi/sweetpotato_virome/blob/main/figures/Fig3_pipeline_ViNA.jpg)
-
+[<img src="../figures/Fig3_pipeline_ViNA.png" width="500"/>]
 
 Seven sweetpoato regions results:\
 1- [k-cluster 1](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster1): Tanzania and Uganda\
