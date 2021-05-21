@@ -9,7 +9,24 @@ library("igraph")
 library(viridis)
 library(scales)
 
+# Mac
 setwd("Alcala_Briseno-Garrett/+++Sweetpotato_virome/+Sweetpotato_virome/")
+# Windows
+setwd("C:/Users/ricar/Dropbox (UFL)/Alcala_Briseno-Garrett/+++Sweetpotato_virome/+Sweetpotato_virome/")
+
+
+# functions
+# Get lower triangle of the correlation matrix
+get_lower_tri<-function(cormat){
+  cormat[upper.tri(cormat)] <- NA
+  return(cormat)
+}
+
+# Get upper triangle of the correlation matrix
+get_upper_tri <- function(cormat){
+  cormat[lower.tri(cormat)]<- NA
+  return(cormat)
+}
 
 
 # Read data from ViNA
@@ -54,7 +71,7 @@ library(pheatmap)
 # pheatmap(goodall.mat, display_numbers = T)
 
 virome.chao <- dis.chao(virome, index="sorensen", version="probability", freq=NULL)
-chao.ind <- as.matrix(virome.goodall)
+chao.ind <- as.matrix(virome.chao)
 as.numeric(chao.ind)
 chao.mat <- matrix(as.numeric(chao.ind), nrow = 7)
 colnames(chao.mat) <- paste0("kclust", 1:dim(chao.mat)[1])
@@ -77,58 +94,6 @@ pdf(paste0("Goodall_dist_aswp_all-kclusters_",format(Sys.time(), "%b%d"), ".pdf"
     height = 15) # The height of the plot in inches
  pheatmap(goodall.mat, display_numbers = T, fontsize = 26, cluster_cols = 0, cluster_rows = 0)
 dev.off()
-
-# heatmap(virome_data)
-
-
-
-virome_data=as.matrix(virome.goodall)
- diag(virome_data) <- 1
-#function
-reorder_virdat <- function(virome_data){
-  # Use correlation between variables as distance
-  dd <- as.dist((1-virome_data)/2)
-  hc <- hclust(dd)
-  virome_dat <- virome_data[hc$order, hc$order]
-}
-
-virome_data[is.na(get_lower_tri(virome_data))] <- 0
-heatmap(virome_data)
-
-# 
-# virome.goodallr <- reorder_virdat(as.matrix(virome.goodall))
-# virome.goodallr <- get_upper_tri(virome.goodallr)
-# virome.goodallrm <- melt(virome.goodallr, na.rm = TRUE)
-# virome.goodallrm0 <- virome.goodallrm[which(virome.goodallrm$value != 0), ]
-# rownames(virome.goodallrm) <- 1:nrow(virome.goodallrm)
-# # Heatmap
-# ggplot(data = virome.goodallrm0, aes(Var2, Var1, fill = value))+
-#   geom_tile(color = "white")+
-#   scale_fill_gradientn(colours= c("blue", "green", "yellow", "red"),
-#                        #midpoint = mean(melt_halfdd$value), space = "Lab", 
-#                        name="Goodalll\nIndex") +
-#   theme(legend.position = c(0, 1), legend.justification = c(0, 1))+
-#   #theme_minimal()+ 
-#   theme(axis.text.x = element_text(angle = 90, vjust = 1, size = 12 , hjust = 1),
-#         axis.text.y = element_text(angle = 0, vjust = 1, size = 12 , hjust = 1),
-#         panel.grid.major = element_blank(), #look for a way to turn off or on the grids 
-#         panel.grid.minor = element_blank(),
-#         panel.border = element_blank(),
-#         panel.background = element_blank())+
-#   coord_fixed()
-
-
-
-ggplot(data = virome.goodallrm, aes(Var2, Var1, fill = value))+
-  geom_tile(color = "white")+
-  scale_fill_gradient2(low = "blue", high = "red", mid = "white", 
-                       midpoint = 0, limit = c(-1,1), space = "Lab", 
-                       name="Goodalll\nIndex") +
-  theme_minimal()+ 
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, 
-                                   size = 12, hjust = 1))+
-  coord_fixed()
-
 
 
 #-------------------------------------------------------------------------------
