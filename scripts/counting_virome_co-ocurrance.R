@@ -1,4 +1,10 @@
-# Code to species co-occurrence
+#'@title:  "Counting virome species"
+#'@author: "R Alcala"
+#'@date:   "05/01/2021"
+#'@output: "Stats"
+#---------------------------- species co-occurrence --------------------------- 
+#
+#----------------- Install & load libraries ------------------
 #### NOTE
 # k1vina comes from the script ViNAbn_v2.hpg.R
 
