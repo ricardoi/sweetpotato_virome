@@ -1,6 +1,10 @@
-
-
-
+#'@title:  "Virome Community Analysis"
+#'@author: "R Alcala"
+#'@date:   "05/01/2021"
+#'@output: "Dissimilarity indexes"
+#---------------------------- Vir Comm --------------------------- v02
+#
+#----------------- Install & load libraries ------------------
 library("tidyverse")
 library(plyr)
 library("CommEcol")
@@ -9,13 +13,13 @@ library("igraph")
 library(viridis)
 library(scales)
 
-# Mac
+#------- Setting PATHs
+# for Mac
 setwd("Alcala_Briseno-Garrett/+++Sweetpotato_virome/+Sweetpotato_virome/")
-# Windows
+# for Windows
 setwd("C:/Users/ricar/Dropbox (UFL)/Alcala_Briseno-Garrett/+++Sweetpotato_virome/+Sweetpotato_virome/")
 
-
-# functions
+# required functions
 # Get lower triangle of the correlation matrix
 get_lower_tri<-function(cormat){
   cormat[upper.tri(cormat)] <- NA
@@ -28,7 +32,7 @@ get_upper_tri <- function(cormat){
   return(cormat)
 }
 
-
+#------- Loading data 
 # Read data from ViNA
  virome <- read.csv("aswp_virome_vina_kcluster-Mar03.csv", header = T, stringsAsFactors = F)
 
@@ -232,7 +236,3 @@ plot(vg$proj1,edge.width=E(vg$proj1)$weight^2, vertex.label=V(vg$proj1)$name,
 
 vg.adj1 <- get.adjacency(vg$proj1, sparse=FALSE, attr="weight")
 
-
-# ‘adegenet’
-# adephylo’
-# adespatial’
