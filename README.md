@@ -41,3 +41,5 @@ Region 4- [k-cluster 4](https://github.com/ricardoi/sweetpotato_virome/tree/main
 Region 5- [k-cluster 5](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster5): Mozambique and Zimbabwe\
 Region 6- [k-cluster 6](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster6): Ethiopia\
 Region 7- [k-cluster 7](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster7): Angola\
+
+# ![7k-cluster](https://github.com/ricardoi/sweetpotato_virome/blob/main/images/SSA-SPV-kcluster-1gamma-2_deg_1e-06_gap_statsMC1000.png)
