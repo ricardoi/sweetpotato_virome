@@ -43,6 +43,6 @@ Region 6- [k-cluster 6](https://github.com/ricardoi/sweetpotato_virome/tree/main
 Region 7- [k-cluster 7](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster7): Angola\
 
 <center>
-![][7k-cluster](https://github.com/ricardoi/sweetpotato_virome/blob/main/images/SSA-SPV-kcluster-1gamma-2_deg_1e-06_gap_statsMC1000.png){
+![](https://github.com/ricardoi/sweetpotato_virome/blob/main/images/SSA-SPV-kcluster-1gamma-2_deg_1e-06_gap_statsMC1000.png){
 width=20% }
 </center>
