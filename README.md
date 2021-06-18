@@ -44,5 +44,5 @@ Region 7- [k-cluster 7](https://github.com/ricardoi/sweetpotato_virome/tree/main
 
 <center>
 ![](https://github.com/ricardoi/sweetpotato_virome/blob/main/images/SSA-SPV-kcluster-1gamma-2_deg_1e-06_gap_statsMC1000.png){
-width=20% }
+width=30% }
 </center>
