@@ -5,19 +5,28 @@
 #---------------------------- species co-occurrence --------------------------- 
 #
 #----------------- Install & load libraries ------------------
+library(tidyverse)
+library(dplyr)
+library(plyr)
 #### NOTE
 # k1vina comes from the script ViNAbn_v2.hpg.R
 
-viromeReads <- ddply(k1vina, .(IDs, Family, Genus, pSpecies, Acronym, cluster), 
-                     summarise, Coverage=mean(Reads_mean))
+viromeReads <- ddply(k1vina, .(IDs, Family, Genus, Species, Acronym, cluster), 
+                     summarise, Coverage=mean(RPKM_mean))
 
-virome0 <- as_tibble(ddply(k1vina, .(IDs, Family, Genus, pSpecies, Acronym, cluster), summarise, Coverage=mean(RPKM_mean)))
+virome0 <- as_tibble(ddply(k1vina, .(IDs, Family, Genus, Species, Acronym, cluster), summarise, Coverage=mean(RPKM_mean)))
 virome0
 
 #virome0=viromeReads[viromeReads$Coverage > 1,]
 IDs.mastre <- virome0$IDs[virome0$Acronym == "SPSMV-1"]
 mastre.0 <- virome0[which(virome0$IDs %in% IDs.mastre), ]
 table(mastre.0$Acronym)
+# plotting incidence
+par(mar=c(8,8,8,8))
+plot(sort(table(mastre.0$Species), decreasing = T), las= 2, cex.axis = 0.5,lwd=5,
+     ylim=c(0,1350), ylab = "Virus Incidence", main="SSA-SPV virus incidence")
+abline(h=50, col = "red")
+
 
 bin = table(virome0$IDs, virome0$Acronym)
 
