@@ -24,7 +24,7 @@ A collection of 1300 viromes of swetpotato samples collected from eleven African
 We developed a network framework for the classification of virus sequences using the maximum pairwise similarity between the viral  contigs and the Reference Sequences with similarities above the species demarcation criteria. \
 The identities of each viral contig was assigned taxonomically according to the closest reference sequences. These virus species clusters were quantified using the small RNA reads using RPKM quantification (). \
 
-$\displaystyle{b_i = \sum_{s, t} w_{s,t}^{i} = \sum_{s, t} \frac{n_{s,t}^{i}}{n_{s,t}}}$
+\displaystyle{b_i = \sum_{s, t} w_{s,t}^{i} = \sum_{s, t} \frac{n_{s,t}^{i}}{n_{s,t}}}
 
 We identified the plant virome of each sweetpotato sample, and all infected plants were analyzed it as a bipartite networks; one set of nodes indicating the host and another subset of nodes indicating the virus - the virus species complex - where a disconnected graph represents a mixed infection, otherwise a single infection.
 
@@ -42,4 +42,19 @@ Region 5- [k-cluster 5](https://github.com/ricardoi/sweetpotato_virome/tree/main
 Region 6- [k-cluster 6](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster6): Ethiopia\
 Region 7- [k-cluster 7](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster7): Angola\
 
-![](https://github.com/ricardoi/sweetpotato_virome/blob/main/images/SSA-SPV-kcluster-1gamma-2_deg_1e-06_gap_statsMC1000.png){width=30% }
+![](https://github.com/ricardoi/sweetpotato_virome/blob/main/images/SSA-SPV-kcluster-1gamma-2_deg_1e-06_gap_statsMC1000.png)
+
+### Virome Composition SSA-SPV
+
+| k-cluster | African region | Countries                      | No. of accessions* |
+|-----------|----------------|--------------------------------|--------------------|
+| Region 1  | East           | Tanzania, Uganda               | 228                |
+| Region 2  | Near West      | Ghana, Benin and Nigeria       | 36                 |
+| Region 3  | Southwest      | Angola                         | 171                |
+| Region 4  | East group 1   | Mozambique, Zimbabwe           | 262                |
+| Region 5  | East group 2   | Mozambique, Tanzania, Zimbabwe | 151                |
+| Region 6  | East group 3   | Rwanda, Tanzania, Uganda       | 261                |
+| Region 7  | Far East       | Ethiopia                       | 171                |
+| Total     |                |                                |  1286              |
+
+
