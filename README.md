@@ -45,15 +45,15 @@ Seven sweetpoato regions results:\
 
  ### Virome Composition SSA-SPV
 
- | k-cluster | African region | Countries                      | No. of accessions* |
- |-----------|----------------|--------------------------------|--------------------|
- | Region 1  | East           | Tanzania, Uganda               | 228                |
- | Region 2  | Near West      | Ghana, Benin and Nigeria       | 36                 |
- | Region 3  | Southwest      | Angola                         | 171                |
- | Region 4  | East group 1   | Mozambique, Zimbabwe           | 262                |
- | Region 5  | East group 2   | Mozambique, Tanzania, Zimbabwe | 151                |
- | Region 6  | East group 3   | Rwanda, Tanzania, Uganda       | 261                |
- | Region 7  | Far East       | Ethiopia                       | 171                |
- | Total     |                |                                |  1286              |
-
+ | Regions   | k-cluster| African region | Countries                      | No. of accessions* |
+ |-----------|----------|----------------|--------------------------------|--------------------|
+ | Region 1  | [k-cluster 1](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster1) | East           | Tanzania, Uganda               | 228                |
+ | Region 2  | [k-cluster 2](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster2) | Near West      | Ghana, Benin and Nigeria       | 36                 |
+ | Region 3  | [k-cluster 3](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster3)| Southwest      | Angola                         | 171                |
+ | Region 4  | [k-cluster 4](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster4) | East group 1   | Mozambique, Zimbabwe           | 262                |
+ | Region 5  | [k-cluster 5](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster5) | East group 2   | Mozambique, Tanzania, Zimbabwe | 151                |
+ | Region 6  | [k-cluster 6](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster6) | East group 3   | Rwanda, Tanzania, Uganda       | 261                |
+ | Region 7  | [k-cluster 7](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster7): | Far East       | Ethiopia                       | 171                |
+ | Total     |                                                                                             |                |                                |  1286           |
+ 
 ![](https://github.com/ricardoi/sweetpotato_virome/blob/main/images/SSA-SPV-kcluster-1gamma-2_deg_1e-06_gap_statsMC1000.png)
