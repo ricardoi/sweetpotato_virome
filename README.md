@@ -11,8 +11,8 @@ Pan-African sweetpotato virome: a network analysis approach for the analysis of 
 
 ## The Pan-African sweetpotato virome:
 
-A project with Dr. Jan F. Kreuze from International Potato Center ([CIP](https://cipotato.org/)), Lima, \
-and Dr. Karen A. Garrett and Ricardo I. Alcala from the department of Plant Pathology ([PLP](https://plantpath.ifas.ufl.edu/)), \
+A project with Jan F. Kreuze from International Potato Center ([CIP](https://cipotato.org/)), Lima, \
+and Ricardo I. Alcala  and Karen A. Garrett from the department of Plant Pathology ([PLP](https://plantpath.ifas.ufl.edu/)), \
 Emerging Pathogens Institute ([EPI](https://epi.ufl.edu/)) and the Food Systems Institute ([FSI](https://foodsystems.ifas.ufl.edu/)) at the [University of Florida](http://www.ufl.edu/).
 
 The Pan-African sweetpotato virome [website](http://bioinfo.bti.cornell.edu/virome/index) serve as the repository of the Sub-Saharan\
@@ -30,8 +30,8 @@ We identified the plant virome of each sweetpotato sample, and all infected plan
 
 -----
 
-The Sub-Saharan Africa sweetpotato crop area was retrieved from two databases: Monfreda et al., available at [earthstat](http://www.earthstat.org/) and [MapSpam](https://www.mapspam.info/data/).\
-[Seven regions](https://github.com/ricardoi/sweetpotato_virome/blob/main/results/00-Aswp_kcluster-1gamma-2_deg_1e-06_gap_statsMC1000Sep24.pdf) of sweetpotato were determined using a gravity model of a negative exponential distribution using the mean harvested area with a resolution of 1 degree (described in full in [Xing et al. 2020](https://academic.oup.com/bioscience/article/70/9/744/5875255)).
+The Sub-Saharan Africa sweetpotato crop area was retrieved from two databases: Monfreda et al., available at [EarthStat](http://www.earthstat.org/) and [MapSpam](https://www.mapspam.info/data/).\
+Seven regions of sweetpotato were determined using a gravity model of a negative exponential distribution and unsupervised machine learning using the mean harvested area with 1 degree of resolution ([Xing et al. 2020](https://academic.oup.com/bioscience/article/70/9/744/5875255)).
 
 
  ### Seven geographic regions of sweetpotato across eleven countries in Sub-Saharan Africa  
@@ -44,7 +44,7 @@ The Sub-Saharan Africa sweetpotato crop area was retrieved from two databases: M
  | Region 4  | [k-cluster 4](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster4) | East group 1   | Mozambique, Zimbabwe           | 262                |
  | Region 5  | [k-cluster 5](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster5) | East group 2   | Mozambique, Tanzania, Zimbabwe | 151                |
  | Region 6  | [k-cluster 6](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster6) | East group 3   | Rwanda, Tanzania, Uganda       | 261                |
- | Region 7  | [k-cluster 7](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster7): | Far East       | Ethiopia                       | 171                |
+ | Region 7  | [k-cluster 7](https://github.com/ricardoi/sweetpotato_virome/tree/main/results/k-cluster7) | Far East       | Ethiopia                       | 171                |
  | Total     |                                                                                             |                |                                |  1286           |
  
 ![](https://github.com/ricardoi/sweetpotato_virome/blob/main/images/SSA-SPV-kcluster-1gamma-2_deg_1e-06_gap_statsMC1000.png)
