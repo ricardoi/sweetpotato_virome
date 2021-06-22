@@ -12,14 +12,26 @@ library(igraph )
 #### NOTE
 # k1vina comes from the script ViNAbn_v2.hpg.R
 
-
-table(kvina$cluster)
-
 virome <- ddply(kvina, .(IDs, Family, Genus, Acronym, cluster), 
                      summarise, Coverage=mean(RPKM_mean))
 length(unique(virome$IDs))
+table(kvina$cluster)
+# virome counts
+vir <- as_tibble(ddply(virome, .(IDs, cluster), summarise, cov = mean(Coverage)))
 
-vir <- ddply(virome, .(IDs, Acronym), summarise, cov = mean(Coverage))
+# Example
+# Histogram on a Categorical variable
+ggplot(vir, aes(cluster))+ 
+  geom_bar(aes(fill=cluster), width = 0.5) + 
+  theme(axis.text.x = element_text(angle=65, vjust=1)) + 
+  labs(title="Histogram on Categorical Variable", 
+       subtitle="Virome Composition across Sweepotato Cluster") 
+
+# c("red", "yellow", "purple", "blue", "orange", "pink","black")
+##############
+
+
+
 vir <-  tidyr::spread(vir, IDs, cov, drop=T, fill = 0)
 rownames(vir) <- vir$Acronym
 vir <- vir[-c(1)]
