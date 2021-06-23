@@ -24,14 +24,15 @@ vir <- as_tibble(ddply(virome, .(IDs, cluster), summarise, cov = mean(Coverage))
 ggplot(vir, aes(cluster))+ 
   geom_bar(aes(fill=cluster), width = 0.5) + 
   theme(axis.text.x = element_text(angle=65, vjust=1)) + 
-  labs(title="Histogram on Categorical Variable", 
-       subtitle="Virome Composition across Sweepotato Cluster") 
+  labs(title="Fig. 2", 
+       subtitle="Virome incidence across sweepotato regions")+
+  theme_classic()
 
 # c("red", "yellow", "purple", "blue", "orange", "pink","black")
 ##############
 
 
-
+vir <- ddply(virome, .(IDs, Acronym), summarise, cov = mean(Coverage))
 vir <-  tidyr::spread(vir, IDs, cov, drop=T, fill = 0)
 rownames(vir) <- vir$Acronym
 vir <- vir[-c(1)]
@@ -40,9 +41,9 @@ vir[1:5, 1:5]
 paste("MESSAGE:: The lenght of the sample locations is ", length(vir), " and the data matrix is ", n,
       ", then dimesions are equal? A = ", length(unique(virome$IDs)) == length(vir), sep = "")
 
-virgraph <- graph_from_data_frame(vir, directed = F )
+virgraph <- graph_from_incidence_matrix(vir)
 
-plot(g)
+plot(virgraph)
 
 
 # virome0 <- as_tibble(ddply(virome, .(IDs, Acronym, cluster), summarise, Cov= Coverage/Coverage))
