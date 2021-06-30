@@ -15,10 +15,11 @@ library(tidyverse)
 #------- Loading files
 files = list.files(pattern="*network-metrics.csv")
 #
+ls=list()
 for (i in 1:length(files)){
   x <- read.csv(files[i], as.is=T)
   # x$IDs <- rep(names$names[i], nrow(x))
-  ls[[i]] = x
+  ls[[i]] =  x
 }
 ls[[1]]
 
@@ -28,23 +29,33 @@ nmts <- as.data.frame(t(nmts))
 #####
 names(nmts)
 # Figure
-par(mfrow=c(4,2), mar=c(3,3,3,3))
-plot(nmts$nestedness, ylab = "Nestedness", xlab="Sweetpotato groups", 
-     main="SSA-SPV virus nestedness")
-plot(nmts$`weighted nestedness`, ylab = "weighted nestedness", xlab="Sweetpotato groups", 
-     main="SSA-SPV virus weighted nestedness")
-plot(nmts$NODF, ylab = "NODF", xlab="Sweetpotato groups",
-     main="SSA-SPV virus NODF")
-plot(nmts$`connectance`, ylab = "connectance", xlab="Sweetpotato groups",
-     main="SSA-SPV virus connectance")
-plot(nmts$`weighted connectance`, ylab = "weighted connectance", xlab="Sweetpotato groups",
-     main="SSA-SPV virus weighted connectance")
-plot(nmts$`Fisher alpha`, ylab = "Fisher alpha", xlab="Sweetpotato groups",
-     main="SSA-SPV virus Fisher alpha")
-plot(nmts$`Shannon diversity`, ylab = "Shannon diversity", xlab="Sweetpotato groups",
-     main="SSA-SPV virus Shannon diversity")
-plot(nmts$number.of.species.LL ~ nmts$number.of.species.HL, ylab = "No. of species (host)", xlab="No. of species (virus",
-     main="SSA-SPV host-virus species")
+# replace regions with no. of individuals and the dots indicate what region is
+par(mfrow=c(3,4), mar=c(4,4,4,4))
+plot(nmts$number.of.species.LL ~ nmts$number.of.species.HL, xlab = "No. of species (host)", ylab = "No. of species (virus)",
+     main="host-virus species")
+plot(nmts$nestedness ~ nmts$number.of.species.HL , ylab = "Nestedness", xlab = "No. of species (host)", 
+     main="nestedness")
+plot(nmts$`weighted nestedness` ~ nmts$number.of.species.HL, ylab = "weighted nestedness", xlab = "No. of species (host)", 
+     main="weighted nestedness")
+plot(nmts$NODF ~ nmts$number.of.species.HL, ylab = "NODF", xlab="No. of species (host)",
+     main="NODF")
+plot(nmts$`connectance` ~ nmts$number.of.species.HL, ylab = "connectance", xlab="No. of species (host)",
+     main="connectance")
+plot(nmts$`weighted connectance` ~ nmts$number.of.species.HL, ylab = "weighted connectance", xlab="No. of species (host)",
+     main="weighted connectance")
+plot(nmts$`Fisher alpha` ~ nmts$number.of.species.HL, ylab = "Fisher alpha", xlab="No. of species (host)",
+     main="Fisher alpha")
+plot(nmts$`Shannon diversity` ~ nmts$number.of.species.HL, ylab = "Shannon diversity", xlab="No. of species (host)",
+     main="Shannon diversity")
+plot(nmts$`interaction evenness` ~ nmts$number.of.species.HL, ylab = "interaction evenness", xlab="No. of species (host)",
+     main="interaction evenness")
+plot(nmts$`Alatalo interaction evenness` ~ nmts$number.of.species.HL, ylab = "Alatalo interaction evenness", xlab="No. of species (host)",
+     main="Alatalo interaction evenness")
+plot(nmts$C.score.HL ~ nmts$number.of.species.HL, ylab = "interaction evenness", xlab="No. of species (host)",
+     main="C-score HL")
+plot(nmts$V.ratio.HL ~ nmts$number.of.species.HL, ylab = "interaction evenness", xlab="No. of species (host)",
+     main="C-score HL")
+
 # dev.off()
 
 #------ Node metrics HL
