@@ -31,30 +31,42 @@ names(nmts)
 # Figure
 # replace regions with no. of individuals and the dots indicate what region is
 par(mfrow=c(3,4), mar=c(4,4,4,4))
-plot(nmts$number.of.species.LL ~ nmts$number.of.species.HL, xlab = "No. of species (host)", ylab = "No. of species (virus)",
-     main="host-virus species")
-plot(nmts$nestedness ~ nmts$number.of.species.HL , ylab = "Nestedness", xlab = "No. of species (host)", 
-     main="nestedness")
-plot(nmts$`weighted nestedness` ~ nmts$number.of.species.HL, ylab = "weighted nestedness", xlab = "No. of species (host)", 
-     main="weighted nestedness")
-plot(nmts$NODF ~ nmts$number.of.species.HL, ylab = "NODF", xlab="No. of species (host)",
-     main="NODF")
-plot(nmts$`connectance` ~ nmts$number.of.species.HL, ylab = "connectance", xlab="No. of species (host)",
-     main="connectance")
-plot(nmts$`weighted connectance` ~ nmts$number.of.species.HL, ylab = "weighted connectance", xlab="No. of species (host)",
-     main="weighted connectance")
-plot(nmts$`Fisher alpha` ~ nmts$number.of.species.HL, ylab = "Fisher alpha", xlab="No. of species (host)",
-     main="Fisher alpha")
-plot(nmts$`Shannon diversity` ~ nmts$number.of.species.HL, ylab = "Shannon diversity", xlab="No. of species (host)",
-     main="Shannon diversity")
-plot(nmts$`interaction evenness` ~ nmts$number.of.species.HL, ylab = "interaction evenness", xlab="No. of species (host)",
-     main="interaction evenness")
-plot(nmts$`Alatalo interaction evenness` ~ nmts$number.of.species.HL, ylab = "Alatalo interaction evenness", xlab="No. of species (host)",
-     main="Alatalo interaction evenness")
-plot(nmts$C.score.HL ~ nmts$number.of.species.HL, ylab = "interaction evenness", xlab="No. of species (host)",
-     main="C-score HL")
-plot(nmts$V.ratio.HL ~ nmts$number.of.species.HL, ylab = "interaction evenness", xlab="No. of species (host)",
-     main="C-score HL")
+plot(nmts$number.of.species.LL ~ nmts$number.of.species.HL, xlab = "No. of species (host)", ylab = "No. of species (virus)")
+text(nmts$number.of.species.LL ~ nmts$number.of.species.HL, cex=0.9, font=2, pos=2)
+     # main="host-virus species")
+plot(nmts$nestedness ~ nmts$number.of.species.HL , ylab = "Nestedness", xlab = "No. of species (host)")
+text(nmts$nestedness ~ nmts$number.of.species.HL, cex=0.9, font=2, pos=2)
+# main="nestedness")
+plot(nmts$`weighted nestedness` ~ nmts$number.of.species.HL, ylab = "weighted nestedness", xlab = "No. of species (host)") 
+text(nmts$`weighted nestedness` ~ nmts$number.of.species.HL, cex=0.9, font=2, pos=2)
+# main="weighted nestedness")
+plot(nmts$NODF ~ nmts$number.of.species.HL, ylab = "NODF", xlab="No. of species (host)")
+text(nmts$NODF ~ nmts$number.of.species.HL, cex=0.9, font=2, pos=2)
+# main="NODF")
+plot(nmts$`connectance` ~ nmts$number.of.species.HL, ylab = "connectance", xlab="No. of species (host)")
+text(nmts$`connectance` ~ nmts$number.of.species.HL, cex=0.9, font=2, pos=2)
+# main="connectance")
+plot(nmts$`weighted connectance` ~ nmts$number.of.species.HL, ylab = "weighted connectance", xlab="No. of species (host)")
+text(nmts$`weighted connectance` ~ nmts$number.of.species.HL, cex=0.9, font=2, pos=2)
+# main="weighted connectance")
+plot(nmts$`Fisher alpha` ~ nmts$number.of.species.HL, ylab = "Fisher alpha", xlab="No. of species (host)")
+text(nmts$`Fisher alpha` ~ nmts$number.of.species.HL, cex=0.9, font=2, pos=2)
+# main="Fisher alpha")
+plot(nmts$`Shannon diversity` ~ nmts$number.of.species.HL, ylab = "Shannon diversity", xlab="No. of species (host)")
+text(nmts$`Shannon diversity` ~ nmts$number.of.species.HL, cex=0.9, font=2, pos=2)
+# main="Shannon diversity")
+plot(nmts$`interaction evenness` ~ nmts$number.of.species.HL, ylab = "interaction evenness", xlab="No. of species (host)")
+text(nmts$`interaction evenness` ~ nmts$number.of.species.HL, cex=0.9, font=2, pos=2)
+# main="interaction evenness")
+plot(nmts$`Alatalo interaction evenness` ~ nmts$number.of.species.HL, ylab = "Alatalo interaction evenness", xlab="No. of species (host)")
+text(nmts$`Alatalo interaction evenness` ~ nmts$number.of.species.HL, cex=0.9, font=2, pos=2)
+# main="Alatalo interaction evenness")
+plot(nmts$C.score.HL ~ nmts$number.of.species.HL, ylab = "interaction evenness", xlab="No. of species (host)")
+text(nmts$C.score.HL ~ nmts$number.of.species.HL, cex=0.9, font=2, pos=2)
+# main="C-score HL")
+plot(nmts$V.ratio.HL ~ nmts$number.of.species.HL, ylab = "interaction evenness", xlab="No. of species (host)")
+text(nmts$V.ratio.HL ~ nmts$number.of.species.HL, cex=0.9, font=2, pos=2)
+# main="V-score HL")
 
 # dev.off()
 
