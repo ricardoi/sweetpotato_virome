@@ -17,7 +17,7 @@ virome$pSpecies <- gsub("^ ", "", virome$pSpecies)
 as_tibble(virome)
 
 virtaxa <- virome %>% 
-              select("IDs", "Family", "Genus", "pSpecies", "Acronym", "cluster", "Reads_mean") %>% 
+              select("IDs", "Family", "Genus", "pSpecies", "Acronym", "cluster", "RPKM_mean") %>% 
               as_tibble()
 
 virtaxa 
@@ -28,8 +28,8 @@ library(reshape2)
 
 # adding colors
 # RbPal <- rainbow(c(length(unique(virtaxa$Family))+2))
-colPal <- c("orange", "firebrick", "dodgeRblue", "green1", "brown1", "cyan2", 
-            "chocolate4", "bisque2", "darkmagenta", "red2", "yellowgreen")
+colPal <- c("orange", "gold", "green4", "green1", "dodgerblue", "cyan2", 
+            "chocolate4", "firebrick", "darkmagenta", "red2", "yellowgreen")
 
 virtaxac <- virtaxa %>%
   mutate( ss = paste(Family),
@@ -38,15 +38,16 @@ virtaxac <- virtaxa %>%
 virtaxac
 
 #alluvla plot 
-alluvial(virtaxac[,c(2,3,5,6)], freq=virtaxac$Reads_mean,
+alluvial(virtaxac[,c(2,3,4)], freq=virtaxac$RPKM_mean,
          #hide = datc$length == 0,
          col = virtaxac$cols,
          border = virtaxac$cols, 
-         alpha = 0.7,
-         blocks = FALSE,
-         ordering = list(NULL, NULL, order(as.factor(virtaxac$Family)), NULL), 
+         gap.width = 0.3,
+         alpha = 0.1,
+         blocks = F,
+         ordering = list(NULL, order(as.factor(virtaxac$Family)), NULL), 
          # change NULL to order them
-         cex =0.8
+         cex =1
   )
 
 
