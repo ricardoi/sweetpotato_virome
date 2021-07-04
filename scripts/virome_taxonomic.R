@@ -4,6 +4,7 @@
 #'@output: "Alluvial plots"
 #---------------------------- virome network metrics  --------------------------- 
 setwd("~/git_local/sweetpotato_virome/data/")
+setwd("~/git_db/sweetpotato_virome/data/")
 
 #----- libraries 
 library(tidyverse)
@@ -29,7 +30,7 @@ library(reshape2)
 # adding colors
 # RbPal <- rainbow(c(length(unique(virtaxa$Family))+2))
 colPal <- c("orange", "gold", "green4", "green1", "dodgerblue", "cyan2", 
-            "chocolate4", "firebrick", "darkmagenta", "red2", "yellowgreen")
+            "purple", "firebrick", "darkmagenta", "red2", "yellowgreen")
 
 virtaxac <- virtaxa %>%
   mutate( ss = paste(Family),
@@ -44,8 +45,8 @@ alluvial(virtaxac[,c(2,3,4)], freq=virtaxac$RPKM_mean,
          border = virtaxac$cols, 
          gap.width = 0.3,
          alpha = 0.1,
-         blocks = F,
-         ordering = list(NULL, order(as.factor(virtaxac$Family)), NULL), 
+         blocks = T,
+         ordering = list(NULL, NULL, order(as.factor(virtaxac$Family))), 
          # change NULL to order them
          cex =1
   )
